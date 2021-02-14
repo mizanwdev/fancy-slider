@@ -56,6 +56,10 @@ img {
   display: none;
 }
 
+/*-------------------------------------------------
+------------------ Custom CSS ---------------------
+---------------------------------------------------*/
+
 /* custom css for displaying error message and spinner */
 #display-error {
   margin-top: 100px;
@@ -65,8 +69,26 @@ img {
   margin-top: 100px;
 }
 
+#header-content {
+  margin-top: 50px;
+  line-height: 20px;
+}
+#fancy-style {
+  width: 100px;
+  height: 100px;
+  transform: rotate(100deg);
+  padding: 0.3em;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  letter-spacing: 2px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(68, 245, 62);
+}
+
 /* adding body background ( CSS linear Gradient Background) */
 body {
+  font-family: "Merriweather", serif;
   background-color: #ffdee9;
   background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
   background-repeat: no-repeat;

@@ -1,3 +1,6 @@
+/*------------------------------------
+------- Changing slide index ---------
+--------------------------------------*/
 const imagesArea = document.querySelector(".images");
 const gallery = document.querySelector(".gallery");
 const galleryHeader = document.querySelector(".gallery-header");
@@ -7,11 +10,12 @@ const sliderContainer = document.getElementById("sliders");
 // selected image
 let sliders = [];
 
-// If this key doesn't work
-// Find the name in the url and go to their website
-// to create your own api key
+// API key from Pixabay Website
 const KEY = "15674931-a9d714b6e9d654524df198e00&q";
 
+/*------------------------------------
+---------- Showing Images ------------
+--------------------------------------*/
 // show images
 const showImages = (images) => {
   imagesArea.style.display = "block";
@@ -32,6 +36,9 @@ const showImages = (images) => {
   displayLoadingSpinner();
 };
 
+/*------------------------------------
+----- Getting Images from Api --------
+--------------------------------------*/
 const getImages = (query) => {
   displayLoadingSpinner();
   fetch(
@@ -43,6 +50,10 @@ const getImages = (query) => {
     .then((data) => showImages(data.hits))
     .catch((err) => displayErrorMessage(err));
 };
+
+/*-----------------------------------------
+-- Slider Item Selecting and Unselecting --
+-------------------------------------------*/
 
 let slideIndex = 0;
 const selectItem = (event, img) => {
@@ -57,7 +68,13 @@ const selectItem = (event, img) => {
   // toggling the image class to unselect it
   element.classList.toggle("added");
 };
-var timer;
+
+/*------------------------------------
+--------- Creating Slider ------------
+--------------------------------------*/
+
+// changed to let (ES6 Modern JavaScript)
+let timer;
 const createSlider = () => {
   // check slider image length
   if (sliders.length < 2) {
@@ -98,12 +115,16 @@ const createSlider = () => {
   }, duration);
 };
 
-// change slider index
+/*------------------------------------
+------- Changing slider item ---------
+--------------------------------------*/
 const changeItem = (index) => {
   changeSlide((slideIndex += index));
 };
 
-// change slide item
+/*------------------------------------
+------- Changing slider image ------
+--------------------------------------*/
 const changeSlide = (index) => {
   const items = document.querySelectorAll(".slider-item");
   if (index < 0) {
@@ -143,6 +164,9 @@ const displayErrorMessage = (showMessage) => {
   }
 };
 
+/*------------------------------------
+----- Search Button Event Listener ---
+--------------------------------------*/
 searchBtn.addEventListener("click", function () {
   document.querySelector(".main").style.display = "none";
   clearInterval(timer);
@@ -151,10 +175,16 @@ searchBtn.addEventListener("click", function () {
   sliders.length = 0;
 });
 
+/*------------------------------------
+----- Slider Button Event Listener ---
+--------------------------------------*/
 sliderBtn.addEventListener("click", function () {
   createSlider();
 });
 
+/*------------------------------------------
+--- Pressing Enter Button Event Listener ---
+--------------------------------------------*/
 document
   .getElementById("search")
   .addEventListener("keypress", function (event) {

@@ -18,36 +18,54 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+
+    <!-- Google Font : Merriweather -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
       integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
       crossorigin="anonymous"
     />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <div class="container">
-      <h4 class="mt-2 text-center">Search Image for create slider</h4>
-      <div class="form-inline mt-3 d-flex justify-content-center">
-        <div class="input-group col-md-6 mb-2">
-          <input
-            type="text"
-            class="form-control"
-            id="search"
-            placeholder="nature"
-          />
+      <!-- made header content div and kept h4 and search box inside -->
+      <div id="header-content">
+        <h4 class="mt-2 text-center">
+          Search images for creating <span id="fancy-style">Fancy</span> slider
+        </h4>
+        <div class="form-inline mt-3 d-flex justify-content-center">
+          <div class="input-group col-md-6 mb-2">
+            <input
+              type="text"
+              class="form-control"
+              id="search"
+              placeholder="nature"
+            />
+          </div>
+          <button type="button" id="search-btn" class="btn btn-primary mb-2">
+            Search
+          </button>
         </div>
-        <button type="button" id="search-btn" class="btn btn-primary mb-2">
-          Search
-        </button>
       </div>
       <section class="images">
         <div
           class="justify-content-around align-items-center mt-3 gallery-header mb-2"
         >
-          <h3 class="head-title text-center">Select image for create slider</h3>
+          <h4 class="head-title text-center text-dark bg-warning p-3">
+            Select at least 2 or more photos for creating slider
+          </h4>
           <div class="input-group col-md-3 mb-2 mb-md-0">
             <!-- fixed id attribute spelling mistake -->
             <!-- fixed input type to number for getting number values and onkeyup event for turning negative number to positive-->
@@ -55,7 +73,7 @@
               type="number"
               class="form-control"
               id="duration"
-              placeholder="slider change duration"
+              placeholder="give slider duration"
               onkeyup="if(this.value<0){this.value = this.value * -1}"
             />
           </div>

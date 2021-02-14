@@ -126,3 +126,11 @@ searchBtn.addEventListener("click", function () {
 sliderBtn.addEventListener("click", function () {
   createSlider();
 });
+
+document
+  .getElementById("search")
+  .addEventListener("keypress", function (event) {
+    if (event.key == "Enter") {
+      document.getElementById("search-btn").click();
+    }
+  });

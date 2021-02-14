@@ -48,10 +48,13 @@
           <h3 class="head-title text-center">Select image for create slider</h3>
           <div class="input-group col-md-3 mb-2 mb-md-0">
             <!-- fixed id attribute spelling mistake -->
+            <!-- fixed input type to number for getting number values and onkeyup event for turning negative number to positive-->
             <input
+              type="number"
               class="form-control"
               id="duration"
               placeholder="slider change duration"
+              onkeyup="if(this.value<0){this.value = this.value * -1}"
             />
           </div>
           <button id="create-slider" class="btn btn-primary px-5">

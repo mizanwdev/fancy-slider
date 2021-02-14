@@ -24,9 +24,11 @@ const showImages = (images) => {
     div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
     gallery.appendChild(div);
   });
+  displayLoadingSpinner();
 };
 
 const getImages = (query) => {
+  displayLoadingSpinner();
   fetch(
     `https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`
   )
@@ -114,6 +116,14 @@ const changeSlide = (index) => {
   });
 
   items[index].style.display = "block";
+};
+
+/*------------------------------------
+------- Display Loading Spinner ------
+--------------------------------------*/
+const displayLoadingSpinner = () => {
+  const displaySpinner = document.getElementById("display-spinner");
+  displaySpinner.classList.toggle("d-none");
 };
 
 searchBtn.addEventListener("click", function () {

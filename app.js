@@ -1,6 +1,30 @@
 /*------------------------------------
-------- Changing slide index ---------
+---- Requirement -----
+১. সার্চ বক্সে কিছু লিখে সার্চ দিলে। সার্চ রেজাল্ট 
+ওয়েবসাইট এ দেখায় না। কেন দেখায় না। সেটা ফিক্স করতে হবে। 
+-- Done
+
+২. স্লাইডার দেখানোর জন্য ইমেজ সিলেক্ট করলে, স্লাইডার দেখায় না। সেটা একটু ফিক্স করতে হবে। 
+-- Done
+
+৩. স্লাইডার এর স্পিড যদি নেগেটিভ নাম্বার দেয়া হয়ে তাহলে সে মাথা খারাপ করে ফেলে। একটার কিছু একটা সমাধান করতে হবে /
+-- Done
+
+৪. কোন কিছু সার্চ দেয়ার সময় Enter বাটনে চাপ দিলে যেন রেজাল্ট দেখায়। সেই রিলেটেড একটা ফিচার যোগ করতে হবে /
+-- Done
+
+৫. কোন ইমেজ এ একবার ক্লিক করলে সেটা স্লাইডার এ যোগ করা হবে। সেই ইমেজ এ আরেকবার ক্লিক করা হলে সেটাকে স্লাইডার থেকে রিমুভ করা হবে।
+-- Done
+
+------- Extra 2 Features Added ---------
+1. Displaying loading spinner while searching for the image.
+
+2. Displaying Error Message if searched image is not found.
+
 --------------------------------------*/
+
+/*------------- CODE START -----------------*/
+
 const imagesArea = document.querySelector(".images");
 const gallery = document.querySelector(".gallery");
 const galleryHeader = document.querySelector(".gallery-header");

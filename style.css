@@ -65,6 +65,14 @@ img {
   margin-top: 100px;
 }
 
+/* adding body background ( CSS linear Gradient Background) */
+body {
+  background-color: #ffdee9;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 @media (max-width: 767px) {
   .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
     flex-direction: column;

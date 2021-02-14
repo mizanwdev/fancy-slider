@@ -40,14 +40,15 @@ const getImages = (query) => {
 let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
-  element.classList.add("added");
-
   let item = sliders.indexOf(img);
+  // checking if the img is selected,if so then remove it from sliders
   if (item === -1) {
     sliders.push(img);
   } else {
-    alert("Hey, Already added !");
+    sliders.splice(item, 1);
   }
+  // toggling the image class to unselect it
+  element.classList.toggle("added");
 };
 var timer;
 const createSlider = () => {

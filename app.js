@@ -70,7 +70,10 @@ const createSlider = () => {
   document.querySelector(".main").style.display = "block";
   // hide image aria
   imagesArea.style.display = "none";
+
+  // fixed spelling mistake of duration in the html id attribute
   const duration = document.getElementById("duration").value || 1000;
+  console.log(duration);
   sliders.forEach((slide) => {
     let item = document.createElement("div");
     item.className = "slider-item";

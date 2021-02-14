@@ -17,13 +17,18 @@ const showImages = (images) => {
   imagesArea.style.display = "block";
   gallery.innerHTML = "";
   // show gallery title
-  galleryHeader.style.display = "flex";
-  images.forEach((image) => {
-    let div = document.createElement("div");
-    div.className = "col-lg-3 col-md-4 col-xs-6 img-item mb-2";
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
-    gallery.appendChild(div);
-  });
+  if (images.length != 0) {
+    galleryHeader.style.display = "flex";
+    images.forEach((image) => {
+      let div = document.createElement("div");
+      div.className = "col-lg-3 col-md-4 col-xs-6 img-item mb-2";
+      div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+      gallery.appendChild(div);
+    });
+    displayErrorMessage(true);
+  } else {
+    displayErrorMessage();
+  }
   displayLoadingSpinner();
 };
 
@@ -36,7 +41,7 @@ const getImages = (query) => {
     // spelling mistake fixed ( for getting images for api)
     // console.log(data.hits)
     .then((data) => showImages(data.hits))
-    .catch((err) => console.log(err));
+    .catch((err) => displayErrorMessage(err));
 };
 
 let slideIndex = 0;
@@ -124,6 +129,18 @@ const changeSlide = (index) => {
 const displayLoadingSpinner = () => {
   const displaySpinner = document.getElementById("display-spinner");
   displaySpinner.classList.toggle("d-none");
+};
+
+/*------------------------------------
+------- Display Error Message --------
+--------------------------------------*/
+const displayErrorMessage = (showMessage) => {
+  const displayError = document.getElementById("display-error");
+  if (showMessage) {
+    displayError.classList.add("d-none");
+  } else {
+    displayError.classList.remove("d-none");
+  }
 };
 
 searchBtn.addEventListener("click", function () {
